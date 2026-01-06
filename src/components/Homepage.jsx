@@ -33,7 +33,7 @@ export default function Homepage({ goCourse }) {
       </div>
 
       {/* Homepage content */}
-      <h1>🎓 Online Learning Progress Tracker(LMS lite)</h1>
+      <h1>🎓 Online Learning Progress Tracker (LMS Lite)</h1>
       <input
         type="text"
         placeholder="First Name"

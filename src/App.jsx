@@ -1,16 +1,19 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Navbar from "./components/Navbar";
-import Homepage from "./Components/Homepage";
+import Homepage from "./components/Homepage";
 import Course from "./components/Course";
+import Subject from "./components/Subject";
 import Progress from "./components/Progress";
 import Quiz from "./components/Quiz";
 import Certificate from "./components/Certificate";
-import Subject from "./components/Subject";
 import "./App.css";
 
 export default function App() {
-  const [page, setPage] = useState("home"); // Current page
-  const [selectedSubject, setSelectedSubject] = useState(""); // Selected course
+  // Current page state
+  const [page, setPage] = useState("home");
+
+  // Selected subject when viewing notes
+  const [selectedSubject, setSelectedSubject] = useState("");
 
   // Track completed lessons
   const [completedLessons, setCompletedLessons] = useState({
@@ -19,17 +22,15 @@ export default function App() {
     "HTML & CSS": false,
   });
 
-  // Mark lesson complete
+  // Mark a lesson as complete
   const markComplete = (subject) => {
     setCompletedLessons({ ...completedLessons, [subject]: true });
   };
 
-  // Handle Navbar clicks
+  // Handle navbar clicks
   const handleNavClick = (p) => {
     setPage(p);
-
-    // Reset selected subject if navigating to course
-    if (p === "course") setSelectedSubject("");
+    if (p === "course") setSelectedSubject(""); // reset selected subject
   };
 
   return (
@@ -43,17 +44,17 @@ export default function App() {
       {/* Course Page */}
       {page === "course" && (
         <Course
-          goSubject={(sub) => {
-            setSelectedSubject(sub);
+          completedLessons={completedLessons}
+          goSubject={(subject) => {
+            setSelectedSubject(subject);
             setPage("subject");
           }}
-          completedLessons={completedLessons}
           next={() => setPage("progress")}
         />
       )}
 
       {/* Subject Page */}
-      {page === "subject" && (
+      {page === "subject" && selectedSubject && (
         <Subject
           subject={selectedSubject}
           back={() => setPage("course")}
@@ -73,7 +74,6 @@ export default function App() {
             },
           ]}
           next={() => {
-            // Ensure all lessons completed before quiz
             const allDone = Object.values(completedLessons).every(Boolean);
             if (!allDone) {
               alert("Complete all lessons first!");
