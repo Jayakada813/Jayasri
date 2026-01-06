@@ -1,0 +1,181 @@
+/* --------- General --------- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* --------- Navbar --------- */
+.navbar {
+  background-color: #4caf50;
+  padding: 12px 20px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.navbar ul li:hover {
+  text-decoration: underline;
+}
+
+.navbar ul li.active {
+  border-bottom: 2px solid white;
+}
+
+/* --------- Homepage --------- */
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  gap: 20px;
+}
+
+.home input {
+  padding: 10px;
+  width: 250px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.home h1 {
+  font-size: 36px;
+  color: #333;
+}
+
+/* --------- Courses Page --------- */
+.courses {
+  padding: 40px;
+}
+
+.course-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.course-card h3 {
+  margin: 0;
+}
+
+.course-card span {
+  color: green;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* --------- Subject Page --------- */
+.subject-page {
+  padding: 40px;
+  background: #ffffffcc;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.subject-page h2 {
+  margin-top: 0;
+}
+
+.subject-page p {
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+/* --------- Progress Page --------- */
+.progress {
+  padding: 40px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 15px;
+  background: #ddd;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #4caf50;
+  border-radius: 10px;
+}
+
+/* --------- Quiz Page --------- */
+.quiz {
+  padding: 40px;
+}
+
+.quiz p {
+  font-weight: 600;
+}
+
+.quiz button {
+  margin: 5px;
+}
+
+/* --------- Certificate Page --------- */
+.certificate {
+  margin: 50px auto;
+  padding: 40px;
+  max-width: 600px;
+  border: 3px solid #4caf50;
+  border-radius: 15px;
+  text-align: center;
+  background: #fff;
+}
+
+.certificate h2 {
+  color: #4caf50;
+}
+
+.certificate button {
+  margin-top: 20px;
+}
+
+/* --------- Responsive --------- */
+@media (max-width: 768px) {
+  .home input {
+    width: 80%;
+  }
+
+  .course-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
